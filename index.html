@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mypage - Your professional website. One page.</title>
+    <meta name="description" content="Generate a professional personal website in minutes.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- HOMEPAGE VIEW -->
+    <div id="homepage-view" class="view active">
+        <header class="app-header">
+            <div class="logo">mypage</div>
+        </header>
+
+        <main class="homepage-main">
+            <div class="hero-container">
+                <h1 class="hero-title">Your professional website.<br>One page.</h1>
+                <p class="hero-subtitle">Generate a clean personal website for jobs, LinkedIn, and professional sharing.
+                    Simple, credible, and ready in minutes.</p>
+                <button class="btn-primary" onclick="showBuilder()">Create My Page</button>
+            </div>
+        </main>
+
+        <footer class="homepage-footer">
+            <p>Built for professionals who need a credible online presence.</p>
+        </footer>
+    </div>
+
+    <!-- BUILDER VIEW -->
+    <div id="builder-view" class="view">
+        <header class="app-header">
+            <div class="logo" onclick="showHomepage()">mypage</div>
+        </header>
+
+        <main class="builder-main-split">
+            <div class="builder-split-container">
+                <!-- LEFT: FORM -->
+                <div class="builder-form-panel">
+                    <div class="builder-header">
+                        <h2>Build Your Page</h2>
+                        <p>Fill in your details and watch the preview update in real-time</p>
+                    </div>
+
+                    <form id="builder-form">
+                        <!-- SECTION A: Basic Identity -->
+                        <div class="form-section">
+                            <h3 class="section-title">Basic Identity</h3>
+
+                            <div class="form-group">
+                                <label for="fullName">Full Name <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="Jane Smith">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profilePhoto">Profile Photo</label>
+                                <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
+                                <small class="form-hint">Optional - Upload a professional headshot</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profession">Profession / Role <span class="required">*</span></label>
+                                <input type="text" id="profession" name="profession" required
+                                    placeholder="Product Designer">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="education">Education / Study</label>
+                                <input type="text" id="education" name="education" placeholder="BFA in Design, NYU">
+                            </div>
+                        </div>
+
+                        <!-- SECTION B: About -->
+                        <div class="form-section">
+                            <h3 class="section-title">About</h3>
+
+                            <div class="form-group">
+                                <label for="bio">Short Bio</label>
+                                <textarea id="bio" name="bio" rows="6"
+                                    placeholder="Write a brief description about yourself, your work, and what you do..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- SECTION C: Custom Sections -->
+                        <div class="form-section">
+                            <h3 class="section-title">Custom Sections</h3>
+                            <p class="section-description">Add links to your resume, portfolio, social profiles, or
+                                anything else you'd like to share.</p>
+
+                            <div id="custom-sections-container">
+                                <!-- Dynamic sections will be added here -->
+                            </div>
+
+                            <button type="button" class="btn-secondary" onclick="addCustomSection()">+ Add
+                                Section</button>
+                        </div>
+
+                        <!-- SECTION D: Design Options -->
+                        <div class="form-section">
+                            <h3 class="section-title">Design Options</h3>
+
+                            <div class="form-group">
+                                <label>Theme</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="theme" value="light">
+                                        <span>Light</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="theme" value="dark" checked>
+                                        <span>Dark</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="accentColor">Accent Color</label>
+                                <div class="color-picker-group">
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#2563eb" checked>
+                                        <span class="color-swatch" style="background: #2563eb;"></span>
+                                        <span class="color-name">Blue</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#7c3aed">
+                                        <span class="color-swatch" style="background: #7c3aed;"></span>
+                                        <span class="color-name">Purple</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#059669">
+                                        <span class="color-swatch" style="background: #059669;"></span>
+                                        <span class="color-name">Green</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#dc2626">
+                                        <span class="color-swatch" style="background: #dc2626;"></span>
+                                        <span class="color-name">Red</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#06d6a0">
+                                        <span class="color-swatch" style="background: #06d6a0;"></span>
+                                        <span class="color-name">Cyan</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#f59e0b">
+                                        <span class="color-swatch" style="background: #f59e0b;"></span>
+                                        <span class="color-name">Orange</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#ec4899">
+                                        <span class="color-swatch" style="background: #ec4899;"></span>
+                                        <span class="color-name">Pink</span>
+                                    </label>
+                                    <label class="color-option">
+                                        <input type="radio" name="accentColor" value="#8b5cf6">
+                                        <span class="color-swatch" style="background: #8b5cf6;"></span>
+                                        <span class="color-name">Violet</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Font Style</label>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="fontStyle" value="inter" checked>
+                                        <span>Inter (Modern)</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="fontStyle" value="crimson">
+                                        <span>Crimson Pro (Editorial)</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="fontStyle" value="mono">
+                                        <span>JetBrains Mono (Tech)</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Layout Style</label>
+                                <div class="layout-grid">
+                                    <label class="layout-option">
+                                        <input type="radio" name="layoutStyle" value="minimal-editorial" checked>
+                                        <div class="layout-preview">
+                                            <div class="layout-icon minimal-icon"></div>
+                                        </div>
+                                        <span class="layout-name">Minimal Editorial</span>
+                                        <small>Clean & centered</small>
+                                    </label>
+                                    <label class="layout-option">
+                                        <input type="radio" name="layoutStyle" value="split-focus">
+                                        <div class="layout-preview">
+                                            <div class="layout-icon split-icon"></div>
+                                        </div>
+                                        <span class="layout-name">Split Focus</span>
+                                        <small>Two-column pro</small>
+                                    </label>
+                                    <label class="layout-option">
+                                        <input type="radio" name="layoutStyle" value="bold-statement">
+                                        <div class="layout-preview">
+                                            <div class="layout-icon bold-icon"></div>
+                                        </div>
+                                        <span class="layout-name">Bold Statement</span>
+                                        <small>High impact</small>
+                                    </label>
+                                    <label class="layout-option">
+                                        <input type="radio" name="layoutStyle" value="card-modular">
+                                        <div class="layout-preview">
+                                            <div class="layout-icon card-icon"></div>
+                                        </div>
+                                        <span class="layout-name">Card Modular</span>
+                                        <small>Structured cards</small>
+                                    </label>
+                                    <label class="layout-option">
+                                        <input type="radio" name="layoutStyle" value="timeline-story">
+                                        <div class="layout-preview">
+                                            <div class="layout-icon timeline-icon"></div>
+                                        </div>
+                                        <span class="layout-name">Timeline Story</span>
+                                        <small>Narrative flow</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary btn-large">Generate Website</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- RIGHT: LIVE PREVIEW -->
+                <div class="builder-preview-panel">
+                    <div class="preview-panel-header">
+                        <h3>Live Preview</h3>
+                        <p>See your changes in real-time</p>
+                    </div>
+                    <div class="preview-panel-frame">
+                        <iframe id="live-preview-iframe" title="Live Preview"></iframe>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PREVIEW VIEW -->
+    <div id="preview-view" class="view">
+        <header class="app-header preview-header">
+            <div class="logo" onclick="showHomepage()">mypage</div>
+            <div class="header-actions">
+                <button class="btn-secondary" onclick="showBuilder()">← Edit</button>
+                <button class="btn-primary" onclick="downloadWebsite()">Download Website Files</button>
+            </div>
+        </header>
+
+        <main class="preview-main">
+            <div class="preview-container">
+                <div class="preview-info">
+                    <h2>Your Website is Ready</h2>
+                    <p>Preview your professional personal website below. When ready, download the files and host them
+                        anywhere.</p>
+                </div>
+
+                <div class="preview-frame-container">
+                    <iframe id="preview-iframe" title="Website Preview"></iframe>
+                </div>
+
+                <div class="download-info">
+                    <h3>What You'll Download</h3>
+                    <ul>
+                        <li><strong>index.html</strong> - Your complete website</li>
+                        <li><strong>style.css</strong> - All styling (embedded option available)</li>
+                    </ul>
+                    <p class="hosting-hint">Host it anywhere: GitHub Pages, Netlify, Vercel, or any web hosting service.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Crafting your website...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
