@@ -16,23 +16,196 @@
 
 <body>
     <!-- HOMEPAGE VIEW -->
+    <!-- HOMEPAGE VIEW -->
     <div id="homepage-view" class="view active">
-        <header class="app-header">
-            <div class="logo">mypage</div>
+        <header class="app-header transparent">
+            <div class="logo-group">
+                <div class="logo">mypage</div>
+                <span class="tagline">Personal Website Builder</span>
+            </div>
         </header>
 
         <main class="homepage-main">
-            <div class="hero-container">
-                <h1 class="hero-title">Your professional website.<br>One page.</h1>
-                <p class="hero-subtitle">Generate a clean personal website for jobs, LinkedIn, and professional sharing.
-                    Simple, credible, and ready in minutes.</p>
-                <button class="btn-primary" onclick="showBuilder()">Create My Page</button>
-            </div>
+            <!-- HERO SECTION -->
+            <section class="hero-section text-center-mobile">
+                <div class="hero-content">
+                    <span class="product-badge">mypage</span>
+                    <h1 class="display-title">One page for<br>everything you are.</h1>
+                    <p class="display-subtitle">A clean personal website for your work, links, and identity — built in
+                        minutes.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary large" onclick="showBuilder()">Create your page</button>
+                        <button class="btn-text" onclick="showExamples()">See examples</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- Abstract CSS Profile Cards -->
+                    <div class="visual-card main-card">
+                        <div class="card-avatar"></div>
+                        <div class="card-lines">
+                            <span class="line l1"></span>
+                            <span class="line l2"></span>
+                        </div>
+                        <div class="card-blocks">
+                            <div class="block"></div>
+                            <div class="block"></div>
+                            <div class="block"></div>
+                        </div>
+                    </div>
+                    <div class="visual-card back-card"></div>
+                </div>
+            </section>
+
+            <!-- PROCESS SECTION -->
+            <section class="process-section">
+                <div class="section-header">
+                    <h2>How it works</h2>
+                </div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <h3>Define yourself</h3>
+                        <p>Add your bio, role, and key links.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <h3>Choose your look</h3>
+                        <p>Select a layout and accent color.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <h3>Share your page</h3>
+                        <p>Download and publish anywhere.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- USE CASES SECTION -->
+            <section class="use-cases-section">
+                <div class="section-header">
+                    <h2>Designed for everyone</h2>
+                </div>
+                <div class="use-cases-grid">
+                    <div class="role-card">
+                        <span class="role-icon">🎨</span>
+                        <h3>Creatives</h3>
+                        <p>Showcase portfolios & social links.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">💼</span>
+                        <h3>Professionals</h3>
+                        <p>A modern digital business card.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">🎓</span>
+                        <h3>Students</h3>
+                        <p>Share your resume and projects.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">✍️</span>
+                        <h3>Writers</h3>
+                        <p>Collect your articles and newsletter.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FINAL CTA -->
+            <section class="final-cta">
+                <h2 class="cta-title">Your page. Your identity.</h2>
+                <button class="btn-primary large" onclick="showBuilder()">Create my page</button>
+            </section>
         </main>
 
         <footer class="homepage-footer">
-            <p>Built for professionals who need a credible online presence.</p>
+            <p>&copy; 2026 mypage. Built for professionals.</p>
         </footer>
+    </div>
+
+    <!-- EXAMPLES PREVIEW VIEW -->
+    <div id="examples-view" class="view">
+        <header class="app-header">
+            <div class="logo-group" onclick="showHomepage()" style="cursor: pointer;">
+                <div class="logo">mypage</div>
+                <span class="tagline">Personal Website Builder</span>
+            </div>
+            <button class="btn-secondary small" onclick="showBuilder()">Start Blank</button>
+        </header>
+
+        <main class="examples-main">
+            <div class="examples-header-section">
+                <h1>Start from a proven example.</h1>
+                <p>Choose a persona below to instantly load it into the builder and make it yours.</p>
+            </div>
+
+            <div class="examples-catalog-grid">
+
+                <!-- Student -->
+                <div class="catalog-card" onclick="loadPreset('student')">
+                    <div class="cat-preview student-style">
+                        <div class="mini-hero"></div>
+                        <div class="mini-lines"></div>
+                    </div>
+                    <div class="cat-info">
+                        <h3>The Student</h3>
+                        <p>Clean, resume-focused layout.</p>
+                        <span class="cat-action">Customize This &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Professional -->
+                <div class="catalog-card" onclick="loadPreset('professional')">
+                    <div class="cat-preview professional-style">
+                        <div class="split-layout">
+                            <div class="side"></div>
+                            <div class="content"></div>
+                        </div>
+                    </div>
+                    <div class="cat-info">
+                        <h3>The Professional</h3>
+                        <p>Structured, corporate & confident.</p>
+                        <span class="cat-action">Customize This &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Creator -->
+                <div class="catalog-card" onclick="loadPreset('creator')">
+                    <div class="cat-preview creator-style">
+                        <div class="bold-text"></div>
+                    </div>
+                    <div class="cat-info">
+                        <h3>The Creator</h3>
+                        <p>Bold, vibrant, and link-heavy.</p>
+                        <span class="cat-action">Customize This &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Writer -->
+                <div class="catalog-card" onclick="loadPreset('writer')">
+                    <div class="cat-preview writer-style">
+                        <div class="serif-text"></div>
+                    </div>
+                    <div class="cat-info">
+                        <h3>The Writer</h3>
+                        <p>Elegant, editorial, story-first.</p>
+                        <span class="cat-action">Customize This &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Minimalist -->
+                <div class="catalog-card" onclick="loadPreset('minimalist')">
+                    <div class="cat-preview minimal-style">
+                        <div class="timeline-line"></div>
+                    </div>
+                    <div class="cat-info">
+                        <h3>The Minimalist</h3>
+                        <p>Just the essentials. Nothing more.</p>
+                        <span class="cat-action">Customize This &rarr;</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
     </div>
 
     <!-- BUILDER VIEW -->
@@ -89,9 +262,9 @@
                             </div>
                         </div>
 
-                        <!-- SECTION C: Custom Sections -->
+                        <!-- SECTION C: Add Links -->
                         <div class="form-section">
-                            <h3 class="section-title">Custom Sections</h3>
+                            <h3 class="section-title">Add Links</h3>
                             <p class="section-description">Add links to your resume, portfolio, social profiles, or
                                 anything else you'd like to share.</p>
 
@@ -100,7 +273,7 @@
                             </div>
 
                             <button type="button" class="btn-secondary" onclick="addCustomSection()">+ Add
-                                Section</button>
+                                Link</button>
                         </div>
 
                         <!-- SECTION D: Design Options -->
