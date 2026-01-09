@@ -55,6 +55,11 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent horizontal scroll/zoom issues */
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
 }
 
 /* ===================================
@@ -248,7 +253,8 @@ body {
     background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
 }
 
-.main-card:hover {
+.main-card:hover,
+.main-card.is-active {
     transform: rotate(0deg) translateY(-10px) scale(1.02);
 }
 
@@ -1364,13 +1370,38 @@ textarea {
     }
 
     .hero-visual {
-        height: 320px;
+        height: 400px;
+        /* More space for the card */
         margin-top: var(--spacing-lg);
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
     .visual-card {
-        width: 240px;
-        height: 360px;
+        width: 260px;
+        height: 380px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        /* Ensure top/bottom centering manually or let flex handle it if static */
+        top: 50%;
+        transform: translateY(-50%) rotate(-3deg);
+        /* Note: We need to override the transform completely to combining vertical center with rotation */
+    }
+
+    .main-card {
+        transform: translateY(-50%) rotate(-3deg);
+        /* Re-apply base transform + centering */
+    }
+
+    /* Ensure hover/active state overrides the transform correctly */
+    .visual-card.main-card:hover,
+    .visual-card.main-card.is-active {
+        transform: translateY(calc(-50% - 12px)) rotate(0deg) scale(1.02);
     }
 
     .process-steps {

@@ -308,9 +308,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // Setup live preview listeners
     setupLivePreviewListeners();
 
+    // Setup interactions (Mobile Art Toggle)
+    setupKeyInteractions();
+
     // Add initial custom section
     addCustomSection();
 });
+
+function setupKeyInteractions() {
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroVisual) {
+        heroVisual.addEventListener('click', (e) => {
+            // Apply only on mobile/tablet to preserve pure hover on desktop
+            if (window.innerWidth <= 900) {
+                const mainCard = heroVisual.querySelector('.main-card');
+                if (mainCard) mainCard.classList.toggle('is-active');
+            }
+        });
+    }
+}
 
 async function generateWebsite() {
     // Show loading overlay
